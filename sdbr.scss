@@ -1,0 +1,257 @@
+@import "null.scss";
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap");
+body {
+  background: url(img/tile_background.png) top no-repeat;
+}
+.burger-button {
+  position: fixed;
+  z-index: 30;
+  box-shadow: 5px 5px 5px 2px rgba(18, 21, 0, 0.8);
+  border: 0.7px solid rgba(238, 238, 231, 0.8);
+  background: radial-gradient(
+    circle,
+    rgba(164, 174, 90, 1) 0%,
+    rgba(176, 190, 97, 1) 61%,
+    rgba(0, 0, 0, 0.2) 75%
+  );
+  margin: 0.625rem 0 0 0.625rem;
+  width: 4.063rem;
+  height: 4.063rem;
+  border-radius: 50%;
+}
+.burger-button:active {
+  box-shadow: 3px 3px 3px 1px rgb(18, 21, 0);
+  transition: box-shadow,transform 0.09s linear;
+  transform: scale(0.98,0.98);
+}
+.burger-lines,
+.burger-lines::before,
+.burger-lines::after {
+  position: absolute;
+  width: 1.875rem;
+  height: 4px;
+  background: rgb(248, 255, 190);
+  border-radius: 1.875rem;
+}
+.burger-lines {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.burger-lines::before {
+  content: "";
+  top: -0.625rem;
+  transition: top 0.2s linear;
+}
+.burger-lines::after {
+  content: "";
+  top: 0.625rem;
+  transition: top 0.2s linear;
+}
+.burger-wrapper.active .burger-lines {
+  background-color: transparent;
+}
+.burger-wrapper.active .burger-lines::before {
+  top: 0;
+  transform: rotate(45deg);
+  transition: transform 0.2s linear;
+}
+.burger-wrapper.active .burger-lines::after {
+  top: 0;
+  transform: rotate(-45deg);
+  transition: transform 0.2s linear;
+}
+//----------------------------------------
+.menu {
+  position: fixed;
+  z-index: 20;
+  top: 5rem;
+  left: 0;
+  width: 15.625rem;
+  font-family: "Dancing Script";
+  font-weight: 600;
+  margin: 0.625rem auto 0 auto;
+  padding-bottom: 0.938rem;
+  background: rgba(237, 246, 167, 0.65);
+  box-shadow: 8px 8px 5px rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(88, 98, 11, 0.6);
+  border-radius: 0px 3.125rem;
+}
+.head {
+  display: flex;
+  align-items: center;
+  padding: 0.813rem 0.938rem 0 0.938rem;
+  margin-bottom: 0.813rem;
+  &__foto {
+    width: 4.063rem;
+    height: 4.063rem;
+    margin-right: 0.938rem;
+    border-radius: 50%;
+    box-shadow: 0px 0px 5px 1.5px rgb(66, 66, 66);
+  }
+  &__name {
+    display: inline-block;
+    margin-right: 2.313rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  &__settings {
+    width:1.25rem;
+  }
+  &__settings:hover{
+    transition:  transform 0.15s ease-in-out;
+    transform: scale(1.1,1.1);
+  }
+  &__settings:active{
+    transition:  transform 0.15s ease-in-out;
+    transform: scale(0.95,0.95);
+  }
+}
+.article {
+  box-shadow: 0px 0px 2.5px rgb(66, 66, 66);
+  padding: 0.625rem 0;
+  background: rgba(255, 255, 255, 0.5);
+  &__note {
+    border: 1px solid rgba(227, 205, 255, 0.75);
+    color: white;
+    font-weight: 700;
+    font-size: 1.438rem;
+    background: rgb(70, 39, 111);
+    display: block;
+    margin: 0px auto;
+    padding: 0.5rem 4.375rem;
+    border-radius: 2px 0.938rem;
+  }
+  &__note:hover{
+background: rgba(82, 17, 167, 0.9);
+transition:transform, background-color 0.25s ease-in-out ;
+  }
+  &__note:active{
+    border: 1px solid rgba(255, 255, 255, 0.85);
+box-shadow:inset 1px  1px   0.75rem rgba(0, 0, 0, 0.55);
+  }
+}
+.list {
+  position: relative;
+  padding: 0 3.125rem 0 0.938rem;
+  font-size: 1.25rem;
+  a {
+    color: black;
+    padding: 0.625rem 0;
+    position: relative;
+  }
+  a:hover {
+    cursor: pointer;
+    color: rgb(98, 0, 225);
+    transition: color, transform 0.15s ease-in;
+    transform: scale(1.015,1.015);
+  }
+  a:hover::before{
+    transform: scaleX(1);
+    transform-origin: left;
+    transition: transform 0.7s;
+  }
+  a::before{
+    content: '';
+    width: 100%;
+    height: 1px;
+    background-color: rgb(98, 0, 225);
+    position: absolute;
+    left: 5px; 
+    bottom: 0px;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.7s;
+  }
+  img {
+    width: 1.25rem;
+    margin-right: 1.25rem;
+  }
+   &__item-one {
+    display: flex;
+  }
+  &__item-two {
+    display: flex;
+  }
+  &__item-three {
+    display: flex;
+  }
+  &__item-four {
+    display: flex;
+  }
+  &__item-five {
+    display: flex;
+  }
+  &__item-six {
+    display: flex;
+  }
+}
+.overlay{
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
+}
+.burger-wrapper.active .overlay{
+display: block;
+}
+//-----------анимация текста------------------------
+
+.animation-text {
+  font-family: "Archivo Black", sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+
+.words {
+  color: rgba(72, 82, 0, 0);
+  font-size: 0px;
+  line-height:1;
+  text-align: left;
+}
+.words span {
+  font-size: 15rem;
+  display: inline-block;
+  animation: move 7s ease-in-out infinite;
+}
+@media (max-width: 1024px){
+  .words span {
+    font-size: 11rem;
+  }
+} 
+@keyframes move {
+  0% {
+    transform: translate(-30%, 0);
+      color: transparent;
+  }
+  50% {
+    text-shadow: 0 1.563rem 3.125rem rgba(0, 0, 0, 0.7);
+    color: rgb(83, 94, 4);
+  }
+  100% {
+    transform: translate(30%, 0);
+    color: transparent;
+  }
+}
+.words span:nth-child(2) {
+  animation-delay: 1s;
+}
+.words span:nth-child(3) {
+  animation-delay: 1.5s;
+}
+.words span:nth-child(4) {
+  animation-delay: 2s;
+}
+.words span:nth-child(5) {
+  animation-delay: 2.5s;
+}
+.words span:nth-child(6) {
+  animation-delay: 3s;
+}
+}
